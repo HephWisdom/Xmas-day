@@ -1,7 +1,16 @@
-const app = require("express")();
+const express = require("express");
+var fs = require("fs");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
+const app = express();
+app.use(express.static(path.join(__dirname, "public")));
 
-const PORT = process.env.PORT || 3000;
+
+// let serveFavicon = require("serve-favicon");
+// app.use(express.static(path.join(__dirname)));
+// app.use(serveFavicon(path.join(__dirname, 'favicon.ico')));
+
 
 app.listen(PORT, () => {
-    console.log(`App up at port ${PORT}`);
+    console.log("the app is running ");
 });
